@@ -10,6 +10,4 @@ public class Main {
     private void run() {
         new Menu().mainMenu();
     }
-
-
 }

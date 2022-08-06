@@ -64,11 +64,11 @@ public class Menu {
     private void printCRUDOptions() {
         System.out.println("1) Add manufacturer");
         System.out.println("2) List all manufacturers");
-        System.out.println("3) Remove manufacturers by name");
+        System.out.println("3) Remove manufacturers by name (Not affecting souvenirs)");
         System.out.println("4) Modify manufacturer");
         System.out.println("5) Add souvenir");
         System.out.println("6) List all souvenirs");
-        System.out.println("7) Remove souvenirs by name");
+        System.out.println("7) Remove souvenirs by name (Affecting manufacturers)");
         System.out.println("8) Modify souvenir");
         System.out.println("0) Exit");
     }
