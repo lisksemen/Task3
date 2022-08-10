@@ -29,7 +29,8 @@ public class ManufacturesRepository implements Serializable {
         return instance;
     }
 
-    private ManufacturesRepository() {}
+    private ManufacturesRepository() {
+    }
 
     public void add(Manufacturer manufacturer) {
         list.add(manufacturer);
@@ -45,6 +46,7 @@ public class ManufacturesRepository implements Serializable {
 
     /**
      * Removes all manufacturers with specified name
+     *
      * @param name name to search and remove
      */
     public void removeByName(String name) {
@@ -100,6 +102,16 @@ public class ManufacturesRepository implements Serializable {
                         "\nCountry: " +
                         d.getManufacturer().getCountry())
                 );
+    }
+
+    public void printManufacturersWithSouvenirsPricesLessThan(double price) {
+        list.stream()
+                .filter(
+                        m -> m.getSouvenirList().stream()
+                                .filter(s -> s.getPrice() >= price)
+                                .toList().isEmpty()
+                )
+                .forEach(System.out::println);
     }
 
     public void printSouvenirsOfManufacturer(Manufacturer manufacturer) {

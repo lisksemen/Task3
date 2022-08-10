@@ -30,8 +30,9 @@ public class Menu {
         System.out.println("5) Print information about manufacturers by souvenir name and year");
         System.out.println("6) Print information about souvenirs made by years");
         System.out.println("7) Delete manufacturer and souvenirs");
-        System.out.println("8) Save all to disk");
-        System.out.println("9) Load all from disk");
+        System.out.println("8) Print manufacturers with all souvenir prices less than specified");
+        System.out.println("9) Save all to disk");
+        System.out.println("10) Load all from disk");
         System.out.println("0) Exit");
     }
 
@@ -42,7 +43,7 @@ public class Menu {
         boolean exit = false;
         while (!exit) {
             printMainOptions();
-            int option = getOption(9);
+            int option = getOption(10);
 
             switch (option) {
                 case 1 -> menuCRUD();
@@ -52,8 +53,9 @@ public class Menu {
                 case 5 -> printManufacturerBySouvenir();
                 case 6 -> printSouvenirsByYears();
                 case 7 -> removeManufacturerAndSouvenirs();
-                case 8 -> Repository.saveAll();
-                case 9 -> Repository.loadAll();
+                case 8 -> printManufacturersWithSouvenirsPricesLessThanSpecified();
+                case 9 -> Repository.saveAll();
+                case 10 -> Repository.loadAll();
 
                 case 0 -> exit = true;
             }
@@ -97,6 +99,13 @@ public class Menu {
      */
     private void printSouvenirsByYears() {
         souvenirsRepository.printSouvenirsByYears();
+    }
+
+    private void printManufacturersWithSouvenirsPricesLessThanSpecified() {
+        System.out.println("Please enter price");
+        double price = Double.parseDouble(scanner.nextLine());
+
+        manufacturesRepository.printManufacturersWithSouvenirsPricesLessThan(price);
     }
 
     private void printManufacturerBySouvenir() {
